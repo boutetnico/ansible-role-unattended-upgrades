@@ -1,0 +1,22 @@
+---
+- name: Ensure dependencies are installed
+  apt:
+    name: "{{ unattended_dependencies }}"
+    state: present
+    update_cache: true
+
+- name: Create auto-upgrades configuration
+  template:
+    dest: /etc/apt/apt.conf.d/20auto-upgrades
+    group: root
+    mode: 0644
+    owner: root
+    src: auto-upgrades.j2
+
+- name: Create unattended-upgrades configuration
+  template:
+    dest: /etc/apt/apt.conf.d/50unattended-upgrades
+    group: root
+    mode: 0644
+    owner: root
+    src: unattended-upgrades.j2

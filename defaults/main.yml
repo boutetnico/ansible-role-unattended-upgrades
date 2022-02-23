@@ -1,0 +1,5 @@
+---
+unattended_dependencies:
+  - unattended-upgrades
+
+unattended_package_blacklist: []
