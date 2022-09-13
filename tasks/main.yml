@@ -1,12 +1,12 @@
 ---
 - name: Ensure dependencies are installed
-  apt:
+  ansible.builtin.apt:
     name: "{{ unattended_dependencies }}"
     state: present
     update_cache: true
 
 - name: Create auto-upgrades configuration
-  template:
+  ansible.builtin.template:
     dest: /etc/apt/apt.conf.d/20auto-upgrades
     group: root
     mode: 0644
@@ -14,7 +14,7 @@
     src: auto-upgrades.j2
 
 - name: Create unattended-upgrades configuration
-  template:
+  ansible.builtin.template:
     dest: /etc/apt/apt.conf.d/50unattended-upgrades
     group: root
     mode: 0644
