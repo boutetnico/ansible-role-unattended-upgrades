@@ -9,7 +9,7 @@
   ansible.builtin.template:
     dest: /etc/apt/apt.conf.d/20auto-upgrades
     group: root
-    mode: 0644
+    mode: "0644"
     owner: root
     src: auto-upgrades.j2
 
@@ -17,6 +17,6 @@
   ansible.builtin.template:
     dest: /etc/apt/apt.conf.d/50unattended-upgrades
     group: root
-    mode: 0644
+    mode: "0644"
     owner: root
     src: unattended-upgrades.j2
