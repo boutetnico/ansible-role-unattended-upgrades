@@ -26,3 +26,17 @@ def test_config_files_exist(host, file, user, group, mode):
     assert config.user == user
     assert config.group == group
     assert config.mode == mode
+
+
+def test_auto_upgrades_config_content(host):
+    config = host.file("/etc/apt/apt.conf.d/20auto-upgrades")
+    assert 'APT::Periodic::Update-Package-Lists "1";' in config.content_string
+    assert 'APT::Periodic::Unattended-Upgrade "1";' in config.content_string
+
+
+def test_unattended_upgrades_config_content(host):
+    config = host.file("/etc/apt/apt.conf.d/50unattended-upgrades")
+    content = config.content_string
+    assert "Unattended-Upgrade::Package-Blacklist" in content
+    assert '"vim"' in content
+    assert '"libc6"' in content

@@ -4,3 +4,6 @@
 
   roles:
     - role: boutetnico.unattended_upgrades
+      unattended_package_blacklist:
+        - vim
+        - libc6
