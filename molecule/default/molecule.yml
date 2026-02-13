@@ -7,10 +7,10 @@ driver:
   name: docker
 
 platforms:
-  - name: ansible-role-unattended-upgrades-debian-11
-    image: debian:11
   - name: ansible-role-unattended-upgrades-debian-12
     image: debian:12
+  - name: ansible-role-unattended-upgrades-debian-13
+    image: debian:13
   - name: ansible-role-unattended-upgrades-ubuntu-2204
     image: ubuntu:22.04
   - name: ansible-role-unattended-upgrades-ubuntu-2404
